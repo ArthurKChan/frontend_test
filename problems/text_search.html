@@ -27,13 +27,15 @@
 	<hr/>
 
 	<h2>Search</h2>
-	<form>
+	<form onsubmit="return search();">
 		<input type="text" id="search_input" value="llama" />
 		<input type="submit" value="Search" />
 	</form>
 
 	<h3>Results</h3>
-	Found 0 occurances of the word "llama" in the below text.
+	<span id="result">
+		Found <span id="wordCount">0</span> occurances of the word "<span id="query">llama</span>" in the below text.
+	</span>
 
 	<hr/>
 
@@ -54,5 +56,6 @@
 	</div>
 </div>
 
+<script src="search.js"></script>
 </body>
 </html>
