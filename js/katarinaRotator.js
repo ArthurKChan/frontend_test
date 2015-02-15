@@ -1,56 +1,100 @@
-var SWAP_ANIMATION_DURATION = 1200;
-var SWAP_INTERVAL = 3000;
+var FADE_DURATION = 1000;
+var ZOOM_DURATION = 4000;
+var SWAP_INTERVAL = 6000;
 
-var rotatorDiv = document.getElementById("rotator");
+document.addEventListener('DOMContentLoaded', function() {
 
-var katarinaPictures = document.getElementsByClassName("katarinaPicture");
-var katarinaPictureRotator = rotatorFactory(katarinaPictures);
+  var rotatorDiv = document.getElementById("rotator");
+  var katarinaPictures = document.getElementById("slidesToRotate").children;
+  var katarinaPictureRotator = rotatorFactory(katarinaPictures);
 
-// render next Katarina picture every <SWAP_INTERVAL> milliseconds
-// with a <SWAP_ANIMATION_DURATION> timed fade in and out animation
-rotatorDiv.innerHTML = katarinaPictures[0].innerHTML;
-setInterval(function(){
-  var swapStep = fadeToNewPic(rotatorDiv, katarinaPictureRotator(), SWAP_ANIMATION_DURATION);
-  window.requestAnimationFrame(swapStep);
-},SWAP_INTERVAL);
+  rotatorDiv.innerHTML = katarinaPictures[0].outerHTML;
+  setInterval(function(){
+    fadeOut(rotatorDiv, FADE_DURATION, function(){
+      rotatorDiv.innerHTML = katarinaPictureRotator().outerHTML;
+      fadeIn(rotatorDiv, FADE_DURATION, function(){
+        var picture = rotatorDiv.getElementsByClassName("katarinaPicture")[0];
+        kenBurnsEffect(picture, ZOOM_DURATION);
+      });
+    });
+  },SWAP_INTERVAL);
+
+  var pic = rotatorDiv.getElementsByClassName("katarinaPicture")[0];
+  setTimeout(function(){
+    kenBurnsEffect(pic, 4000);
+  }, 1500);
+});
+
 
 
 /*
 * input:  array
-* output: function that returns an element in the array
-          each consecutive call returns the next element (loops)
+* output: looping iterator for given array
 */
-function rotatorFactory(pictures){
-  currentPicture = 1;
+function rotatorFactory(list){
+  var index = 1;
+  var length = list.length;
   return function(){
-    currentPicture = (currentPicture + 1) % pictures.length;
-    return pictures[currentPicture];
+    if (index >= length) index = 0;
+    return list[index++];
   };
 };
 
-/*
-* input:  element        picture container
-          nextPicture    next picture's html
-          duration       duration of swap animation
-* output: step animation function
+/**
+* input:  DOM element
+          duration of animation (ms)
+* output: applies Ken Burns effect to element for duration
 */
-function fadeToNewPic(element, nextPicture, duration){
-  var start = null;
-  var swapped = false;
+function kenBurnsEffect(element, duration){
+  duration = duration || 1000;
+  element.style["-webkit-transition"] = "all "+duration+"ms ease";
+  element.style["-webkit-transform"] = "translate(-40px,20px) scale(1.2)";
+};
 
-  return function step(timestamp) {
+/**
+* input:  DOM element
+          duration of animation (ms)
+* output: applies fadeIn animation to element
+*/
+function fadeIn(element, duration, callback){
+  duration = duration || 1000;
+  var start = null;
+
+  window.requestAnimationFrame(step);
+
+  function step(timestamp) {
     if (!start) start = timestamp;
     var progress = timestamp - start;
-    if (progress < duration/2) {
-      element.style.opacity = 1 - progress/(duration/2);
-    } else {
-      if (!swapped) {
-        element.innerHTML = nextPicture.innerHTML;
-      }
-      element.style.opacity = progress/(duration/2) - 1;
-    }
     if (progress < duration) {
+      element.style.opacity = progress/duration;
       window.requestAnimationFrame(step);
+    } else {
+      element.style.opacity = 1;
+      if (callback) callback();
+    }
+  };
+};
+
+/**
+* input:  DOM element
+          duration of animation (ms)
+* output: applies fadeOut animation to element
+*/
+function fadeOut(element, duration, callback){
+  duration = duration || 1000;
+  var start = null;
+
+  window.requestAnimationFrame(step);
+
+  function step(timestamp) {
+    if (!start) start = timestamp;
+    var progress = timestamp - start;
+    if (progress < duration) {
+      element.style.opacity = 1 - progress/duration;
+      window.requestAnimationFrame(step);
+    } else {
+      element.style.opacity = 0;
+      if (callback) callback();
     }
   };
 };

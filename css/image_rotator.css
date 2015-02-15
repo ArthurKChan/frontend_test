@@ -1,0 +1,63 @@
+#slidesToRotate {
+  display: none;
+}
+
+.frame {
+  position: relative;
+  border: 5px solid red;
+  width: 450px;
+}
+
+#rotator {
+  position: relative;
+  width: 450px;
+  height: 266px;      
+  background: dimgray;
+  text-align: center;
+  opacity: 1;
+  overflow: hidden;
+}
+
+#rotatorContainer {
+  height: 450px;
+}
+
+.katarinaSlide {
+  position: relative;
+  width: 450px;
+  height: 266px;
+  font-size: 18px;
+}
+
+.katarinaPicture {
+  position: relative;
+}
+
+.description {
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  margin: 0;
+  background-color: rgba(0,0,0,.5);
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.description h4 {
+  color: red;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.description p {
+  color: white;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+img {
+  vertical-align: bottom;
+}

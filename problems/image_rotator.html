@@ -3,24 +3,9 @@
 <head>
 	<title>Frontend Coding Test</title>
 	<link type="text/css" rel="stylesheet" href="../css/style.css" />
-	<style type="text/css">
-		#rotator {
-			width: 450px;
-			height: auto;
-			background: dimgray;
-			text-align: center;
-			opacity: 1;
-		}
-
-		#rotatorContainer {
-			height: 450px;
-		}
-
-		img {
-			vertical-align: bottom;
-		}
-	</style>
+	<link type="text/css" rel="stylesheet" href="../css/image_rotator.css"/>
 </head>
+
 <body>
 	<div id="headwrap">
 	<div class="head">
@@ -42,33 +27,45 @@
 
 	<div id="rotatorContainer">
 		<h1>Katarina Skins</h1>
-		<div id="rotator"></div>
+		<div class="frame">
+			<div id="rotator"></div>
+		</div>
 	</div>
 
 	<hr />
 
-	<div class="katarinaPicture">
-		<h4>Katarina</h4>
-		<p>Fruitcake bonbon donut jelly-o brownie biscuit marzipan pie.</p>
-		<img src="../img/kat_1.jpg" /><br/>
-	</div>
+	<div id="slidesToRotate">
+		<div class="katarinaSlide">
+			<div class="description">
+				<h4>Katarina</h4>
+				<p>Fruitcake bonbon donut jelly-o brownie biscuit marzipan pie.</p>
+			</div>
+			<img src="../img/kat_1.jpg" class="katarinaPicture" /><br/>
+		</div>
 
-	<div class="katarinaPicture">
-		<h4>Red Card Katarina</h4>
-		<p>Cheesecake marzipan cupcake biscuit candy canes pudding.</p>
-		<img src="../img/kat_2.jpg" /><br/>
-	</div>
+		<div class="katarinaSlide">
+			<div class="description">
+				<h4>Red Card Katarina</h4>
+				<p>Cheesecake marzipan cupcake biscuit candy canes pudding.</p>
+			</div>
+			<img src="../img/kat_2.jpg" class="katarinaPicture" /><br/>
+		</div>
 
-	<div class="katarinaPicture">
-		<h4>Kitty Cat Katarina</h4>
-		<p>Applicake topping halvah lemon drops wypas cotton candy.</p>
-		<img src="../img/kat_3.jpg" /><br/>
-	</div>
+		<div class="katarinaSlide">
+			<div class="description">
+				<h4>Kitty Cat Katarina</h4>
+				<p>Applicake topping halvah lemon drops wypas cotton candy.</p>
+			</div>
+			<img src="../img/kat_3.jpg" class="katarinaPicture" /><br/>
+		</div>
 
-	<div class="katarinaPicture">
-		<h4>High Command Katarina</h4>
-		<p>Oat cake macaroon souffle cupcake chupa chups chocolate bar bear claw dragee lemon drops.</p>
-		<img src="../img/kat_4.jpg" /><br/>
+		<div class="katarinaSlide">
+			<div class="description">
+				<h4>High Command Katarina</h4>
+				<p>Oat cake macaroon souffle cupcake chupa chups chocolate bar bear claw dragee lemon drops.</p>
+			</div>
+			<img src="../img/kat_4.jpg" class="katarinaPicture" /><br/>
+		</div>
 	</div>
 
 </div>
