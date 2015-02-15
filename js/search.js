@@ -11,6 +11,8 @@ function search(){
   return false;
 };
 
+
+
 /**
 * input:  element (dom element to search through)
           string  (query to match in element text)
@@ -50,21 +52,24 @@ function highlightOccurances(element, string){
   query = query.split(/\s+/);
   // build regular expression
   var regularExpressionString = "(>[^</]*)(" + query[0] + ")";
-  var replacement = "$1<span class=\"highlight\">$2</span>";
-  var counter = 2;
   for(var i=1; i<query.length; i++){
     regularExpressionString += "((?:\\s*<[^>]*>\\s*)+|\\s+)";
     regularExpressionString += "(" + query[i] + ")";
   }
   var regExp = new RegExp(regularExpressionString, "gi");
+  // build replacement string
+  var replacement = "$1<span class=\"highlight\">$2</span>";
+  var counter = 2;
   for(var i=1; i<query.length; i++){
     replacement += "$" + ++counter;
     replacement += "<span class=\"highlight\">$"+ ++counter +"</span>";
   }
-  // console.log(regExp);
-  // console.log(replacement);
+
+  // find matches and highlight matches
   var matches = element.innerHTML.match(regExp);
+
   element.innerHTML = element.innerHTML.replace(regExp, replacement);
+
   if (matches) return matches.length;
   else return 0;
 };
