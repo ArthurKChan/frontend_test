@@ -4,3 +4,8 @@
   border: 0px white solid;
   border-radius: 3px;
 }
+
+#wordCount, #query {
+  color: red;
+  font-weight: bold;
+}

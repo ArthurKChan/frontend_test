@@ -18,6 +18,15 @@ body {
   margin-top: 20px;
 }
 
+#imageRotator {
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  width: 285px;
+  float: right;
+  display: inline;
+}
+
 .tabs {
   position: relative;
   box-sizing: border-box;
@@ -94,14 +103,9 @@ button {
   background-image: url(../img/arena_art/modes-cs.jpg);
 }
 
-#imageRotator {
-  position: relative;
-  display: inline;
-  box-sizing: border-box;
-}
-
 #picture {
   position: relative;
-  width: 25%;
-  margin: 20px;
+  width: 98%;
+  top: 10%;
+  margin: auto;
 }
