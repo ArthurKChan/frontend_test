@@ -10,9 +10,10 @@ body {
 
 #container {
   position: relative;
-  width: 700px;
+  width: 99%;
   height: 253px;
   padding: 10px;
+  padding-right: 0px;
   background-color: white;
   margin-top: 20px;
 }
@@ -59,7 +60,7 @@ button {
   box-sizing: border-box;
   width: 450px;
   height: 253px;
-  float: right;
+  float: left;
   display: inline;
   padding: 10px;
 }
@@ -91,4 +92,16 @@ button {
 
 #tabContent4 {
   background-image: url(../img/arena_art/modes-cs.jpg);
+}
+
+#imageRotator {
+  position: relative;
+  display: inline;
+  box-sizing: border-box;
+}
+
+#picture {
+  position: relative;
+  width: 25%;
+  margin: 20px;
 }
