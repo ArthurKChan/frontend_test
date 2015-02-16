@@ -2,39 +2,39 @@ var FADE_DURATION = 1000;
 var ZOOM_DURATION = 4000;
 var SWAP_INTERVAL = 6000;
 
-// Import animation functions from animate.js
-var imported = document.createElement('script');
-imported.src = '../js/animate.js';
-document.head.appendChild(imported);
-
-document.addEventListener('DOMContentLoaded', function() {
+(function loadScript(callback){
+  // Load animations script then build search functionality
+  var script = document.createElement("script");
+  script.type = "text/javascript"
+  script.src = "../js/libs/animations.js";
+  script.onload = callback;
+  document.head.appendChild(script);
+})(function(){
 
   var rotatorDiv = document.getElementById("rotator");
   var katarinaPictures = document.getElementById("slidesToRotate").children;
   var katarinaPictureRotator = rotatorFactory(katarinaPictures);
 
   // Every SWAP_INTERVAL ms:
-  //   fade out current slide
-  //   then fadeIn next slide
-  //   then apply Ken Burns effect to slide
+  //   1) fade out current slide
+  //   2) then fadeIn next slide
+  //   3) then apply Ken Burns effect to slide
   rotatorDiv.innerHTML = katarinaPictures[0].outerHTML;
   setInterval(function(){
-    animate.fadeOut(rotatorDiv, FADE_DURATION, function(){
+    fadeOut(rotatorDiv, FADE_DURATION, function(){
       rotatorDiv.innerHTML = katarinaPictureRotator().outerHTML;
-      animate.fadeIn(rotatorDiv, FADE_DURATION, function(){
+      fadeIn(rotatorDiv, FADE_DURATION, function(){
         var picture = rotatorDiv.getElementsByClassName("katarinaPicture")[0];
-        animate.kenBurnsEffect(picture, ZOOM_DURATION);
+        kenBurnsEffect(picture, ZOOM_DURATION);
       });
     });
   },SWAP_INTERVAL);
 
-  // Initiate Ken Burns effect on first picture
-  var pic = rotatorDiv.getElementsByClassName("katarinaPicture")[0];
+  // Initiate Ken Burns effect on initial picture
   setTimeout(function(){
-    animate.kenBurnsEffect(pic, 4000);
+    kenBurnsEffect(rotatorDiv.getElementsByClassName("katarinaPicture")[0], 4000);
   }, 1500);
 });
-
 
 /*
 * input:  array
