@@ -1,12 +1,21 @@
 /**
 * input:  DOM element
-*         duration of animation (ms)
+*         options
+*           duration: duration of animation (ms)
+*           x: horizontal translation (pixels)
+*           y: vertical translation (pixeles)
+*           scale: new size proportion
 * output: applies Ken Burns effect to element for duration
 */
-function kenBurnsEffect(element, duration){
-  duration = duration || 1000;
+function kenBurnsEffect(element, options){
+  options = options || {};
+  duration = options.duration || 4000;
+  x = options.x || -40;
+  y = options.y || 20;
+  scale = options.scale || 1.2;
+
   element.style["-webkit-transition"] = "all "+duration+"ms ease";
-  element.style["-webkit-transform"] = "translate(-40px,20px) scale(1.2)";
+  element.style["-webkit-transform"] = "translate("+x+"px,"+y+"px) scale("+scale+")";
 };
 
 /**

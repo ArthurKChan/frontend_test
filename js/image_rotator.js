@@ -32,7 +32,7 @@ var SWAP_INTERVAL = 6000;
 
   // Initiate Ken Burns effect on initial picture
   setTimeout(function(){
-    kenBurnsEffect(rotatorDiv.getElementsByClassName("katarinaPicture")[0], 4000);
+    kenBurnsEffect(rotatorDiv.getElementsByClassName("katarinaPicture")[0]);
   }, 1500);
 });
 
