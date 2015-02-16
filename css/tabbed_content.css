@@ -1,49 +1,94 @@
-.picture {
-  background-color: #F9F9F9;
-  border: 1px solid #CCCCCC; padding: 3px;
-  text-align: center;
-  margin: 0 0 18px 0;
-  width: 647px;
-  color: #000;
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-.picture img {
-  border: 1px solid #CCCCCC;
-  vertical-align:middle; margin-bottom: 3px;
+#content {
+  position: relative;
 }
 
 #container {
-  background-color: darkred;
-  color: white;
-  padding: 5px;
+  position: relative;
+  width: 700px;
+  height: 253px;
+  padding: 10px;
+  background-color: white;
+  margin-top: 20px;
 }
 
 .tabs {
   position: relative;
-  list-style-type: none;
-  margin: 0px;
-  padding: 0px;
-  vertical-align: bottom;
+  box-sizing: border-box;
+  height: 100%;
+  width: 250px;
+  float: left;
+  display: inline;
 }
 
 .tab {
   position: relative;
-  display: inline;
-  vertical-align: bottom;
-  margin: 0px;
+  display: block;
+  width: 100%;
+  height: 25%;
+}
+
+button {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-width: 2px;
+  border-color: gray;
+  border-right: none;
+  color: white;
+  background: dimgray;
+  background-image: -webkit-linear-gradient(top, gray, dimgray);
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.selected {
+  background-color: slategray;
+  background-image: -webkit-linear-gradient(top, dimgray, slategray);
 }
 
 .tabContent {
   position: relative;
-  border: 1px solid crimson;
-  background-color: crimson;
-  padding-left: 4px;
-  padding-right: 4px;
+  box-sizing: border-box;
+  width: 450px;
+  height: 253px;
+  float: right;
+  display: inline;
+  padding: 10px;
 }
 
-button {
-  background-color: crimson;
-  border-color: crimson;
-  border-bottom: none;
+.tabContent h3 {
+  position: relative;
+  color: red;
+  background-color: rgba(0,0,0,.5);
+  padding: 5px;
+}
+
+.tabContent p {
   color: white;
+  background-color: rgba(0,0,0,.5);
+  padding: 10px;
+}
+
+#tabContent1 {
+  background-image: url(../img/arena_art/modes-sr.jpg);
+}
+
+#tabContent2 {
+  background-image: url(../img/arena_art/modes-tt.jpg);
+}
+
+#tabContent3 {
+  background-image: url(../img/arena_art/modes-ha.jpg);
+}
+
+#tabContent4 {
+  background-image: url(../img/arena_art/modes-cs.jpg);
 }

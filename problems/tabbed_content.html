@@ -18,43 +18,47 @@
 			Using HTML, CSS, and JavaScript, create a functional tabbed content container in the div below.  Each tab should contain different content, and content should change when clicking on a different tab.
 		</p>
 
-		<div class="picture">
-			<img src="../img/tabbed_content.png" />
-			<p>Example of a tabbed content container.</p>
-		</div>
-
 		<hr/>
 
 		<div id="container">
 			
-			<ul class="tabs">
-				<li class="tab" onclick="swapTo(1)"><button>Tab 1</button></li>
-				<li class="tab" onclick="swapTo(2)"><button>Tab 2</button></li>
-				<li class="tab" onclick="swapTo(3)"><button>Tab 3</button></li>
-			</ul>
+			<div class="tabs">
+				<span class="tab" onclick="swapTo(1)"><button class="selected">Summoner's Rift</button></span>
+				<span class="tab" onclick="swapTo(2)"><button>The Twisted Treeline</button></span>
+				<span class="tab" onclick="swapTo(3)"><button>Howling Abyss</button></span>
+				<span class="tab" onclick="swapTo(4)"><button>The Crystal Scar</button></span>
+			</div>
 
 			<div class="tabContent" id="tabContent1">
-				<h3>Tab 1</h3>
+				<h3>Summoner's Rift</h3>
 				<p>
-					Gingerbread muffin gummies gingerbread macaroon. Lollipop candy applicake toffee faworki. Bear claw topping jelly toffee toffee powder tiramisu candy chupa chups. Chupa chups dragee icing applicake chupa chups dessert. Croissant jelly faworki marzipan tootsie roll marshmallow. Marshmallow toffee sweet roll fruitcake.
+					League of Legends' flagship Field of Justice, Summoner's Rift, remains the battleground of choice for the majority of players. Two teams of five champions battle across three lanes and an expansive jungle that holds powerful buffs and major neutral objectives. An extended laning phase and large-scale team fights are characteristic of this battlefield.
 				</p>
 			</div>
 
-			<div class="tabContent" id="tabContent2">
-				<h3>Tab 2</h3>
+			<div class="tabContent" id="tabContent2" style="display:none">
+				<h3>The Twisted Treeline</h3>
 				<p>
-					Chocolate faworki croissant brownie halvah macaroon gummi bears wypas. Chupa chups icing gummies pudding dessert carrot cake. Cupcake jelly beans sweet roll icing ice cream apple pie tootsie roll gummi bears marzipan. Brownie gummies chupa chups pie. Cupcake jujubes topping. 
+					The second Field of Justice added to League of Legends, Twisted Treeline, features two lanes and teams of three champions. Champions begin play with higher starting gold totals than Summoner's Rift, sparking fast engagements and frequent team fights. A single, centralized jungle between the lanes holds capturable altars that encourage battle over neutral objectives and frequent ganking.
 				</p>
 			</div>
 
-			<div class="tabContent" id="tabContent3">
-				<h3>Tab 3</h3>
+			<div class="tabContent" id="tabContent3" style="display:none">
+				<h3>Howling Abyss</h3>
 				<p>
-					Cheesecake jelly beans ice cream lollipop sweet pastry. Chupa chups dessert cheesecake sesame snaps. Cookie ice cream candy canes pastry cake muffin. Icing chocolate sweet gummi bears powder oat cake oat cake lemon drops.
+					Inspired by the popular community game mode All Random All Mid, the Howling Abyss features two teams of five champions battling over a single lane. The summoner platform provides no healing and shopping is strictly limited to periods after your champion has died. This pushes the map toward aggressive, high-intensity gameplay centered on team fights.
+				</p>
+			</div>
+
+			<div class="tabContent" id="tabContent4" style="display:none">
+				<h3>The Crystal Scar</h3>
+				<p>
+					The premier map of the Dominion game mode, the Crystal Scar features five capture points arranged in a circle around a powerful team buff. Champions begin play at level 3, leveling up and acquiring gold rapidly as the game progresses. Small-scale skirmishes and huge kill scores are the hallmarks of this fast-paced battleground.
 				</p>
 			</div>
 
 		</div>
+
 	</div>
 <script src="../js/tabbed_content.js"></script>
 </body>
